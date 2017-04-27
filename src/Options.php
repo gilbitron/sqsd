@@ -48,6 +48,10 @@ class Options
      * @var int
      */
     public $sleep;
+    /**
+     * @var string
+     */
+    public $storagePath;
 
     /**
      * Options constructor.
@@ -65,6 +69,7 @@ class Options
         $this->workerPath         = $this->env('SQSD_WORKER_PATH', '/');
         $this->cronPath           = $this->env('SQSD_CRON_PATH');
         $this->sleep              = $this->env('SQSD_SLEEP_SECONDS', 1);
+        $this->storagePath        = $this->env('SQSD_STORAGE_PATH', '/tmp/sqsd');
     }
 
     /**

@@ -50,6 +50,7 @@ Configuration is done by either setting environment variables before running `sq
 | `SQSD_WORKER_PATH` | The path that will be appended to the worker URL (default is `/`). This is the same as the **HTTP Path** setting in the [Elastic Beanstalk worker environment settings](http://docs.aws.amazon.com/elasticbeanstalk/latest/dg/using-features-managing-env-tiers.html#using-features-managing-env-tiers-worker-settings) |
 | `SQSD_CRON_PATH` | Absolute path to a `cron.yaml` which specifies periodic tasks |
 | `SQSD_SLEEP_SECONDS` | The time in seconds `sqsd` should sleep between checks (default is `1`) |
+| `SQSD_STORAGE_PATH` | Path to a writable storage dir (default is `/tmp/sqsd`) |
 
 Environment variables marked with a * are required for `sqsd` to work.
 

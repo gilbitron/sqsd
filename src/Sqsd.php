@@ -194,8 +194,12 @@ class Sqsd
             return;
         }
 
+        if (!is_dir($this->options->storagePath)) {
+            mkdir($this->options->storagePath, 0777, true);
+        }
+
         $fileName = preg_replace('/[^a-zA-Z0-9\-\._]/', '', $cron['name']);
-        $filePath = BASE_PATH . '/storage/' . $fileName . '.cron';
+        $filePath = $this->options->storagePath . '/' . $fileName . '.cron';
 
         if (file_exists($filePath)) {
             $timestamp = file_get_contents($filePath);
