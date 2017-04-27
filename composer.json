@@ -1,30 +1,33 @@
 {
-    "name": "gilbitron/sqsd",
-    "description": "A replica of the AWS Elastic Beanstalk worker SQS daemon (sqsd) in PHP",
-    "keywords": [
-        "sqsd",
-        "aws",
-        "sqs",
-        "worker",
-        "daemon"
-    ],
-    "authors": [
-        {
-            "name": "Gilbert Pellegrom",
-            "email": "gilbert@pellegrom.me"
-        }
-    ],
-    "license": "MIT",
-    "require": {
-        "symfony/console": "^3.2",
-        "vlucas/phpdotenv": "^2.4",
-        "aws/aws-sdk-php": "^3.26",
-        "symfony/yaml": "^3.2",
-        "mtdowling/cron-expression": "^1.2"
-    },
-    "autoload": {
-        "psr-4": {
-            "Sqsd\\": "src/"
-        }
-    }
+	"name": "gilbitron/sqsd",
+	"description": "A replica of the AWS Elastic Beanstalk worker SQS daemon (sqsd) in PHP",
+	"keywords": [
+		"sqsd",
+		"aws",
+		"sqs",
+		"worker",
+		"daemon"
+	],
+	"authors": [
+		{
+			"name": "Gilbert Pellegrom",
+			"email": "gilbert@pellegrom.me"
+		}
+	],
+	"license": "MIT",
+	"bin": [
+		"sqsd"
+	],
+	"require": {
+		"symfony/console": "^3.2",
+		"vlucas/phpdotenv": "^2.4",
+		"aws/aws-sdk-php": "^3.26",
+		"symfony/yaml": "^3.2",
+		"mtdowling/cron-expression": "^1.2"
+	},
+	"autoload": {
+		"psr-4": {
+			"Sqsd\\": "src/"
+		}
+	}
 }
