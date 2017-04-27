@@ -24,6 +24,8 @@ class WorkCommand extends Command
             $dotenv->load();
         }
 
+        $this->checkRequiredEnvironmentVars();
+
         $options = new Options();
         $worker  = new Worker($options);
         $sqs     = new Sqs($options);
@@ -39,5 +41,27 @@ class WorkCommand extends Command
             $sqsd->runPeriodicTasks();
             $sqsd->checkForMessages();
         });
+    }
+
+    /**
+     * Check that all required environment variables are set
+     *
+     * @throws \Exception
+     */
+    protected function checkRequiredEnvironmentVars()
+    {
+        $requiredEnvVars = [
+            'AWS_ACCESS_KEY_ID',
+            'AWS_SECRET_ACCESS_KEY',
+            'SQS_QUEUE_URL',
+            'SQS_QUEUE_NAME',
+            'SQS_QUEUE_REGION',
+        ];
+
+        foreach ($requiredEnvVars as $requiredEnvVar) {
+            if (getenv($requiredEnvVar) === false) {
+                throw new \Exception('Missing required environment variable: ' . $requiredEnvVar);
+            }
+        }
     }
 }
