@@ -26,9 +26,16 @@ Another aspect of `sqsd` is that it can read a `cron.yaml` file in the root of y
 1. Run `composer install`
 1. Run `php sqsd work`
 
+To install as a composer dependency:
+
+1. Run `composer require gilbitron/sqsd`
+1. Run `php ./vendor/bin/sqsd work`
+
+Note: If your're running `sqsd` as a composer dependency you will need to set your environment variables via the command line (see below for more info).
+
 ## Configuration
 
-Configuration is done by either setting environment variables before running `sqsd` or specifying them in `.env`.
+Configuration is done by either setting environment variables before running `sqsd` (e.g. `export SQS_QUEUE_URL=https://sqs.us-east-1.amazonaws.com/123456789`) or specifying them in `.env`.
 
 | Env Variable | Description |
 | --- | --- |
