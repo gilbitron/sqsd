@@ -16,7 +16,7 @@
 	],
 	"license": "MIT",
 	"bin": [
-		"sqsd"
+		"bin/sqsd.phar"
 	],
 	"require": {
 		"symfony/console": "^3.2",

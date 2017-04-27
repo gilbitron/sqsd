@@ -1,0 +1,21 @@
+{
+	"directories": [
+		"src"
+	],
+	"files": [
+		"LICENSE"
+	],
+	"finder": [
+		{
+			"name": "*.php",
+			"exclude": [
+				"tests",
+				"Tests"
+			],
+			"in": "vendor"
+		}
+	],
+	"main": "sqsd",
+	"output": "bin/sqsd.phar",
+	"stub": true
+}
