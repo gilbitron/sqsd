@@ -52,6 +52,17 @@ If you're looking for a package that will make Laravel work with `sqsd` I recomm
 
 If you are using this to test a Laravel app, instead of [configuring Supervisor](https://laravel.com/docs/5.4/queues#supervisor-configuration) to run the `aritsan queue:work` command, configure Supervisor to run the `sqsd work` command.
 
+## Contribute
+
+So you want to help out? That's awesome. Here is how you can do it:
+
+* [Report a bug](https://github.com/gilbitron/sqsd/issues)
+* [Ask for a feature](https://github.com/gilbitron/sqsd/issues)
+* [Submit a pull request](https://github.com/gilbitron/sqsd/pulls)
+
+If you are submitting a pull request please adhere to the existing coding standards used throughout the code
+and only submit **1 feature/fix per pull request**. Pull requests containing multiple changes will be rejected.
+
 ## Credits
 
 Sqsd was created by [Gilbert Pellegrom](http://gilbert.pellegrom.me) from
