@@ -46,7 +46,9 @@ Configuration is done by either setting environment variables before running `sq
 
 Environment variables marked with a * are required for `sqsd` to work.
 
-## Laravel Tip
+## Laravel Tips
+
+If you're looking for a package that will make Laravel work with `sqsd` I recommend [dusterio/laravel-aws-worker](https://github.com/dusterio/laravel-aws-worker).
 
 If you are using this to test a Laravel app, instead of [configuring Supervisor](https://laravel.com/docs/5.4/queues#supervisor-configuration) to run the `aritsan queue:work` command, configure Supervisor to run the `sqsd work` command.
 
