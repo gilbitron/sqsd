@@ -24,12 +24,12 @@ Another aspect of `sqsd` is that it can read a `cron.yaml` file in the root of y
 1. Clone this repo
 1. Copy `.env.example` to `.env` and fill in the details (see below)
 1. Run `composer install`
-1. Run `php sqsd work`
+1. Run `php ./bin/sqsd.phar work`
 
 To install as a composer dependency:
 
 1. Run `composer require gilbitron/sqsd`
-1. Run `php ./vendor/bin/sqsd work`
+1. Run `php ./vendor/bin/sqsd.phar work`
 
 Note: If your're running `sqsd` as a composer dependency you will need to set your environment variables via the command line (see below for more info).
 
@@ -52,6 +52,14 @@ Configuration is done by either setting environment variables before running `sq
 | `SQSD_SLEEP_SECONDS` | The time in seconds `sqsd` should sleep between checks (default is `1`) |
 
 Environment variables marked with a * are required for `sqsd` to work.
+
+## Building the Phar
+
+To build Phar file first you need to [install Box](https://github.com/box-project/box2) then run:
+
+```
+box build -v
+```
 
 ## Laravel Tips
 
