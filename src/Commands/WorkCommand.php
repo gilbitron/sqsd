@@ -21,6 +21,13 @@ class WorkCommand extends Command
     {
         $dotenv = new \Dotenv\Dotenv(BASE_PATH);
         $dotenv->load();
+        $dotenv->required([
+            'AWS_ACCESS_KEY_ID',
+            'AWS_SECRET_ACCESS_KEY',
+            'SQS_QUEUE_URL',
+            'SQS_QUEUE_NAME',
+            'SQS_QUEUE_REGION',
+        ]);
 
         $options = new Options();
         $worker  = new Worker($options);
