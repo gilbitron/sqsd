@@ -1,6 +1,6 @@
 {
     "name": "gilbitron/sqsd",
-    "description": "",
+    "description": "A replica of the AWS Elastic Beanstalk worker SQS daemon (sqsd) in PHP",
     "keywords": [
         "sqsd",
         "aws",
