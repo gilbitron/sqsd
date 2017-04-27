@@ -1,0 +1,12 @@
+#!/usr/bin/env php
+<?php
+
+define('BASE_PATH', __DIR__);
+require __DIR__ . '/vendor/autoload.php';
+
+use Sqsd\Commands\WorkCommand;
+use Symfony\Component\Console\Application;
+
+$application = new Application('sqsd');
+$application->add(new WorkCommand());
+$application->run();
