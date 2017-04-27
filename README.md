@@ -6,6 +6,8 @@ This project ([inspired by others](https://github.com/proofme/sqsd)) is an attem
 
 ## Description
 
+![Sqsd architecture](https://cloud.githubusercontent.com/assets/203882/25480291/1719d8ca-2b40-11e7-8a2c-37831e59559c.png)
+
 The Laravel queue worker operates by polling a queue for jobs and then runs them inline (as the queue worker is part of the application). As `sqsd` is completely separate from any application it works in a different way so that any application can be designed to work with it.
 
 Sqsd works by polling a SQS queue for jobs and then `POST`'s them to an endpoint specified in your [Elastic Beanstalk worker environment settings](http://docs.aws.amazon.com/elasticbeanstalk/latest/dg/using-features-managing-env-tiers.html#using-features-managing-env-tiers-worker-settings) (default is `http://localhost/`). If a job fails for any reason, then the job is sent to what is called a [Dead Letter Queue](http://docs.aws.amazon.com/elasticbeanstalk/latest/dg/using-features-managing-env-tiers.html#worker-deadletter) for manual processing.
