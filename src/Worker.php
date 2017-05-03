@@ -17,6 +17,10 @@ class Worker
      */
     public $paused = false;
     /**
+     * @var bool
+     */
+    public $isLeader = false;
+    /**
      * @var Options
      */
     protected $options;
@@ -40,6 +44,8 @@ class Worker
     public function daemon($function)
     {
         while (true) {
+            $this->isLeader = $this->isLeaderProcess();
+
             if (!$this->daemonShouldRun()) {
                 $this->pauseWorker();
 
@@ -110,5 +116,33 @@ class Worker
     public function sleep()
     {
         sleep($this->options->sleep > 0 ? $this->options->sleep : 1);
+    }
+
+    /**
+     * Determine if this daemon process is the "leader"
+     *
+     * @return bool
+     */
+    protected function isLeaderProcess()
+    {
+        $leaderFile = $this->options->storagePath . '/leader.lock';
+        $timeout    = strtotime('-30 seconds');
+
+        if (file_exists($leaderFile)) {
+            $pid = file_get_contents($leaderFile);
+            if ($pid == getmypid()) {
+                return true;
+            } else {
+                if (filemtime($leaderFile) < $timeout) {
+                    unlink($leaderFile);
+                }
+
+                return false;
+            }
+        }
+
+        file_put_contents($leaderFile, getmypid());
+
+        return true;
     }
 }

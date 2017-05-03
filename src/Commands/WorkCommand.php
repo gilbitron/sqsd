@@ -37,8 +37,11 @@ class WorkCommand extends Command
             $output->writeln('No cron.yaml specified');
         }
 
-        return $worker->daemon(function () use ($sqsd) {
-            $sqsd->runPeriodicTasks();
+        return $worker->daemon(function () use ($sqsd, $worker, $output) {
+            if ($worker->isLeader) {
+                $sqsd->runPeriodicTasks();
+            }
+
             $sqsd->checkForMessages();
         });
     }
